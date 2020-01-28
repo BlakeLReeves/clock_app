@@ -44,7 +44,7 @@ class TickerView extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            '00:00.00',
+                            '${model.stopTime}',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 50.0,
@@ -66,7 +66,7 @@ class TickerView extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                         child: RaisedButton(
-                          onPressed: () {model.stopwatch.start();},
+                          onPressed: () {model.startStopwatch();},
                           color: Color(0xFF1CCE90),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
@@ -87,7 +87,7 @@ class TickerView extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                         child: RaisedButton(
-                          onPressed: () {model.stopwatch.stop();},
+                          onPressed: () {model.stopStopwatch();},
                           color: Colors.red,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
@@ -95,6 +95,27 @@ class TickerView extends StatelessWidget {
                           ),
                           child: Text(
                             'Stop',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ),
+                    // * Reset Button
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                        child: RaisedButton(
+                          onPressed: () {model.resetStopwatch();},
+                          color: Colors.grey,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white, width: 2.0)
+                          ),
+                          child: Text(
+                            'Reset',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 20.0,
